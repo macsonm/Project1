@@ -38,7 +38,9 @@ class TableViewController: UITableViewController {
         
         var content = cell.defaultContentConfiguration()
         //content.image = UIImage(named: pictures[indexPath.row])
-        content.text = pictures[indexPath.item]
+        //content.text = pictures[indexPath.item]
+        let numbersAllPictures = pictures.count
+        content.text = "Image \(indexPath.item+1) of \(numbersAllPictures)"
         cell.contentConfiguration = content
     
         return cell
@@ -47,6 +49,7 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             vc.selectedImage = pictures[indexPath.row]
+            vc.nameOfSelectedImage = "\(indexPath.item+1)"
             navigationController?.pushViewController(vc, animated: true)
         }
     }
