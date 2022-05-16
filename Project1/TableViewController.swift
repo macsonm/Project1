@@ -21,7 +21,6 @@ class TableViewController: UITableViewController {
         pictures = pictures.sorted { x1, x2 in
             Int(x1.filter("0123456789".contains)) ?? 2 < Int(x2.filter("0123456789".contains)) ?? 3
             //Int(x1.dropFirst(4))! > Int(x2.dropFirst(4))!
-            
         }
     }
 
@@ -54,5 +53,4 @@ class TableViewController: UITableViewController {
         }
     }
 
-    
 }
