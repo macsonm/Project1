@@ -9,6 +9,11 @@ class TableViewController: UITableViewController {
         title = "Storm Viewer"
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        performSelector(inBackground: #selector(uploadPictures), with: nil)
+        
+    }
+    
+   @objc func uploadPictures() {
         let fm = FileManager.default
         let path = Bundle.main.resourcePath!
         let items = try! fm.contentsOfDirectory(atPath: path)
@@ -23,6 +28,7 @@ class TableViewController: UITableViewController {
             //Int(x1.dropFirst(4))! > Int(x2.dropFirst(4))!
         }
     }
+        
 
     // MARK: - Table view data source
 
