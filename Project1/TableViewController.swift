@@ -57,6 +57,8 @@ class TableViewController: UITableViewController {
             vc.nameOfSelectedImage = "\(indexPath.item+1)"
             navigationController?.pushViewController(vc, animated: true)
         }
+        tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
     }
+    
 
 }
